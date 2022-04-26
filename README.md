@@ -1,3 +1,9 @@
+# Implementações
+
+Adicionado bind de atalho para mover entre as workspaces, e mover janelas entre as workspaces.
+Ctrl+Alt+setas = Percorer workspaces
+Ctrl+Alt+Shift+setas = Mover janela entre as workspaces
+
 # Workspace Matrix
 
 GNOME shell extension to arrange workspaces in a two dimensional grid with workspace thumbnails.
