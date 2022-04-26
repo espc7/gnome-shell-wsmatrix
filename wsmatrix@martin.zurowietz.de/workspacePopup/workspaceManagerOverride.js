@@ -153,6 +153,70 @@ var WorkspaceManagerOverride = class {
             Shell.ActionMode.NORMAL,
             this._showWorkspaceSwitcherPopup.bind(this, true)
         );
+// espc7
+
+        this.wm.addKeybinding(
+            'workspace-window-left',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceWindowMoveLeft.bind(this)
+         );
+         this.wm.addKeybinding(
+            'workspace-window-right',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceWindowMoveRight.bind(this)
+         );
+         
+         this.wm.addKeybinding(
+            'workspace-window-up',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceWindowMoveUp.bind(this)
+         );
+         this.wm.addKeybinding(
+            'workspace-window-down',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceWindowMoveDown.bind(this)
+         );
+
+         this.wm.addKeybinding(
+            'workspace-right',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceMoveRight.bind(this)
+         );
+   
+         this.wm.addKeybinding(
+            'workspace-left',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceMoveLeft.bind(this)
+         );
+         
+          this.wm.addKeybinding(
+            'workspace-up',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceMoveUp.bind(this)
+         );
+   
+         this.wm.addKeybinding(
+            'workspace-down',
+            this._keybindings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL,
+            this._workspaceMoveDown.bind(this)
+         );
+// espc7
     }
 
     _addWorkspaceOverviewKeybindings() {
@@ -199,6 +263,16 @@ var WorkspaceManagerOverride = class {
 
     _removeKeybindings() {
         this.wm.removeKeybinding('workspace-overview-toggle');
+        // espc7
+        this.wm.removeKeybinding('workspace-window-down');
+        this.wm.removeKeybinding('workspace-window-up');
+        this.wm.removeKeybinding('workspace-window-left');
+        this.wm.removeKeybinding('workspace-window-right');
+        this.wm.removeKeybinding('workspace-down');
+        this.wm.removeKeybinding('workspace-up');
+        this.wm.removeKeybinding('workspace-left');
+        this.wm.removeKeybinding('workspace-right');
+        // espc7
     }
 
     _removeWorkspaceOverviewKeybindings() {
@@ -433,6 +507,7 @@ var WorkspaceManagerOverride = class {
                 if (!this.wm._wsPopupList[monitorIndex]) {
                     this.wm._workspaceTracker.blockUpdates();
                     this.wm._wsPopupList[monitorIndex] = this._createNewPopup({
+                        timeout: 300,
                         monitorIndex: monitorIndex,
                         toggle: toggle,
                     });
@@ -463,6 +538,56 @@ var WorkspaceManagerOverride = class {
             });
         }
     }
+
+    // espc7
+    _workspaceWindowMoveLeft() {
+        this.wm.actionMoveWindow(global.display.focus_window, this._getTargetWorkspace(Meta.MotionDirection.LEFT));
+        this._showWorkspaceSwitcherPopup(false);
+    // this._toggleWorkspaceOverviewAndSwitch();
+    }
+    
+    _workspaceWindowMoveRight() {
+        this.wm.actionMoveWindow(global.display.focus_window, this._getTargetWorkspace(Meta.MotionDirection.RIGHT));
+        this._showWorkspaceSwitcherPopup(false);
+    // this._toggleWorkspaceOverviewAndSwitch();
+    }
+    
+    _workspaceWindowMoveUp() {
+        this.wm.actionMoveWindow(global.display.focus_window, this._getTargetWorkspace(Meta.MotionDirection.UP));
+        this._showWorkspaceSwitcherPopup(false);
+    // this._toggleWorkspaceOverviewAndSwitch();
+    }
+    
+    _workspaceWindowMoveDown() {
+        this.wm.actionMoveWindow(global.display.focus_window, this._getTargetWorkspace(Meta.MotionDirection.DOWN));
+        this._showWorkspaceSwitcherPopup(false);
+    // this._toggleWorkspaceOverviewAndSwitch();
+    }
+
+    _workspaceMoveRight() {
+        this._showWorkspaceSwitcherPopup(false);
+        this.wm.actionMoveWorkspace(this._getTargetWorkspace(Meta.MotionDirection.RIGHT));
+       // this._toggleWorkspaceOverviewAndSwitch();
+    }
+ 
+    _workspaceMoveLeft() {
+        this._showWorkspaceSwitcherPopup(false);
+        this.wm.actionMoveWorkspace(this._getTargetWorkspace(Meta.MotionDirection.LEFT));
+    // this._toggleWorkspaceOverviewAndSwitch();
+    }
+ 
+    _workspaceMoveUp() {
+        this._showWorkspaceSwitcherPopup(false);
+        this.wm.actionMoveWorkspace(this._getTargetWorkspace(Meta.MotionDirection.UP));
+     //this._toggleWorkspaceOverviewAndSwitch();
+    }
+ 
+    _workspaceMoveDown() {
+      this._showWorkspaceSwitcherPopup(false);
+      this.wm.actionMoveWorkspace(this._getTargetWorkspace(Meta.MotionDirection.DOWN));
+      //this._toggleWorkspaceOverviewAndSwitch();
+    }
+    // espc7
 
     _destroyWorkspaceSwitcherPopup() {
         this.wm._wsPopupList.filter(p => p).forEach(p => p.destroy());

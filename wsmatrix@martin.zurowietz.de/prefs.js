@@ -72,7 +72,7 @@ const PrefsWidget = GObject.registerClass({
 });
 
 function init() {
-    ExtensionUtils.initTranslations('wsmatrix');
+    ExtensionUtils.initTranslations('multitelaspop');
 }
 
 function buildPrefsWidget() {

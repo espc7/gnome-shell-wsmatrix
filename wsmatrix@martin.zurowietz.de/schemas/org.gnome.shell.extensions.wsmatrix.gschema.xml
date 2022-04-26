@@ -1,11 +1,11 @@
 <schemalist gettext-domain="gnome-shell-extensions">
-    <enum id='org.gnome.shell.extensions.wsmatrix.wraparoundMode'>
+    <enum id='org.gnome.shell.extensions.multitelaspop.wraparoundMode'>
         <value value='0' nick='none'/>
         <value value='1' nick='next-previous'/>
         <value value='2' nick='rows-columns'/>
         <value value='3' nick='next-previous-border'/>
     </enum>
-    <schema id="org.gnome.shell.extensions.wsmatrix-settings" path="/org/gnome/shell/extensions/wsmatrix/">
+    <schema id="org.gnome.shell.extensions.multitelaspop-settings" path="/org/gnome/shell/extensions/multitelaspop/">
         <key type="i" name="num-columns">
             <default>3</default>
             <range min="1" max="36"/>
@@ -38,7 +38,7 @@
             <default>true</default>
             <summary>Whether to show workspace names or not</summary>
         </key>
-        <key name="wraparound-mode" enum="org.gnome.shell.extensions.wsmatrix.wraparoundMode">
+        <key name="wraparound-mode" enum="org.gnome.shell.extensions.multitelaspop.wraparoundMode">
             <default>'none'</default>
             <summary>Wraparound workspaces while navigating</summary>
         </key>
@@ -51,13 +51,71 @@
             <summary>Display popup for all monitors instead of only the primary</summary>
         </key>
     </schema>
-    <schema id="org.gnome.shell.extensions.wsmatrix-keybindings" path="/org/gnome/shell/extensions/wsmatrix/">
+    <schema id="org.gnome.shell.extensions.multitelaspop-keybindings" path="/org/gnome/shell/extensions/multitelaspop/">
         <key name="workspace-overview-toggle" type="as">
             <default>["&lt;Super&gt;w"]</default>
             <summary>Keybinding to open the workspace overview</summary>
             <description>
                 Keybinding to open the workspace overview.ww
             </description>
+        </key>
+        <key name="workspace-window-right" type="as">
+        <default>["&lt;Shift&gt;&lt;Ctrl&gt;&lt;Alt&gt;Right"]</default>
+        <summary>Keybinding to move to the right in the workspace overview</summary>
+        <description>
+            Keybinding to move to the right in the workspace overview
+        </description>
+        </key>
+        
+        <key name="workspace-window-left" type="as">
+        <default>["&lt;Shift&gt;&lt;Ctrl&gt;&lt;Alt&gt;Left"]</default>
+        <summary>Keybinding to move to the right in the workspace overview</summary>
+        <description>
+            Keybinding to move to the right in the workspace overview
+        </description>
+        </key>
+        <key name="workspace-window-up" type="as">
+        <default>["&lt;Shift&gt;&lt;Ctrl&gt;&lt;Alt&gt;Up"]</default>
+        <summary>Keybinding to move to the right in the workspace overview</summary>
+        <description>
+            Keybinding to move to the right in the workspace overview
+        </description>
+        </key>
+        <key name="workspace-window-down" type="as">
+        <default>["&lt;Shift&gt;&lt;Ctrl&gt;&lt;Alt&gt;Down"]</default>
+        <summary>Keybinding to move to the right in the workspace overview</summary>
+        <description>
+            Keybinding to move to the right in the workspace overview
+        </description>
+        </key>
+        
+        <key name="workspace-right" type="as">
+        <default>["&lt;Ctrl&gt;&lt;Alt&gt;Right"]</default>
+        <summary>Keybinding to move to the right in the workspace overview</summary>
+        <description>
+            Keybinding to move to the right in the workspace overview
+        </description>
+        </key>
+        <key name="workspace-left" type="as">
+        <default>["&lt;Ctrl&gt;&lt;Alt&gt;Left"]</default>
+        <summary>Keybinding to move to the left in the workspace overview</summary>
+        <description>
+            Keybinding to move to the left in the workspace overview
+        </description>
+        </key>
+        <key name="workspace-up" type="as">
+        <default>["&lt;Ctrl&gt;&lt;Alt&gt;Up"]</default>
+        <summary>Keybinding to move up in the workspace overview</summary>
+        <description>
+            Keybinding to move up in the workspace overview
+        </description>
+        </key>
+        <key name="workspace-down" type="as">
+        <default>["&lt;Ctrl&gt;&lt;Alt&gt;Down"]</default>
+        <summary>Keybinding to move down in the workspace overview</summary>
+        <description>
+            Keybinding to move down in the workspace overview
+        </description>
         </key>
         <key name="workspace-overview-right" type="as">
             <default>["Right"]</default>
