@@ -3,9 +3,9 @@ const Gio = imports.gi.Gio;
 
 const Self = imports.misc.extensionUtils.getCurrentExtension();
 
-function hookVfunc(proto, symbol, func) {
-    proto[Gi.hook_up_vfunc_symbol](symbol, func);
-}
+//function hookVfunc(proto, symbol, func) {
+//    proto[Gi.hook_up_vfunc_symbol](symbol, func);
+//}
 
 function overrideProto(proto, overrides) {
     const backup = {};
@@ -25,12 +25,12 @@ function overrideProto(proto, overrides) {
         }
         else {
             backup[symbol] = proto[symbol];
-            if (symbol.startsWith('vfunc')) {
-                hookVfunc(proto, symbol.substr(6), overrides[symbol]);
-            }
-            else {
+            // if (symbol.startsWith('vfunc')) {
+            //     hookVfunc(proto, symbol.substr(6), overrides[symbol]);
+            // }
+            // else {
                 proto[symbol] = overrides[symbol];
-            }
+            // }
         }
     }
     return backup;

@@ -26,9 +26,9 @@ var WorkspaceManagerOverride = class {
         this._keybindings = keybindings;
         this._overviewKeybindingActions = {};
         this.monitors = [];
-        this._workspaceAnimation = new WorkspaceAnimation.WorkspaceAnimationController();
+        //this._workspaceAnimation = new WorkspaceAnimation.WorkspaceAnimationController();
         this.overrideProperties = [
-            '_workspaceAnimation',
+          //  '_workspaceAnimation',
             'handleWorkspaceScroll',
         ];
 
